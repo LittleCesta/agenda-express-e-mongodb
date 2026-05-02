@@ -3,6 +3,7 @@ exports.middlewareGlobal = (req, res, next) => {
   // de uma rota a mesma variável, sem precisar repetir o código
   res.locals.errors = req.flash("errors");
   res.locals.success = req.flash("success");
+  res.locals.user = req.session.user;
   next();
 };
 
