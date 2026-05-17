@@ -1,8 +1,8 @@
-const HomeModel = require("../models/HomeModel");
-
+const Contato = require("../models/ContatoModel");
 exports.index = async (req, res) => {
   try {
-    res.render("index");
+    const contatos = await Contato.buscaContatos();
+    res.render("index", { contatos });
   } catch (e) {
     console.error(e);
     res.status(500).send("Erro ao buscar dados");
